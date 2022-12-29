@@ -8,6 +8,9 @@ $(document).ready(function ()
 });
 
 var image_element = "";
+var css_style = "";
+var viewport_height = window.innerHeight;
+var viewport_width = window.innerWidth;
 
 function populate_images()
 {
@@ -15,6 +18,8 @@ function populate_images()
 
     for(i = 0; i < data_light.length; i = i + 1)
     {
+        set_css_style();
+
         image_element = image_element +
                         "<div class=\"d-flex justify-content-center\">" +
                             "<div class=\"card-group d-flex justify-content-center\">";
@@ -23,16 +28,13 @@ function populate_images()
         for(j = 0; j < data_light[i].carousel_elements.length; j = j + 1)
         {
             image_element = image_element +
-                                "<img class=\"center screenshot-" + data_light[i].class + "\" src=\"" + data_light[i].carousel_elements[j].src + "?raw=true\" alt=\"" + data_light[i].carousel_elements[j].alt + "\">";
+                                "<img class=\"center screenshot\" src=\"" + data_light[i].carousel_elements[j].src + "?raw=true\" alt=\"" + data_light[i].carousel_elements[j].alt + "\"" + css_style + ">";
         }
 
-        if(i < data_dark.length)
+        for(j = 0; j < data_dark[i].carousel_elements.length; j = j + 1)
         {
-            for(j = 0; j < data_dark[i].carousel_elements.length; j = j + 1)
-            {
-                image_element = image_element +
-                                    "<img class=\"center screenshot-" + data_dark[i].class + "\" src=\"" + data_dark[i].carousel_elements[j].src + "?raw=true\" alt=\"" + data_dark[i].carousel_elements[j].alt + "\">";
-            }
+            image_element = image_element +
+                                "<img class=\"center screenshot\" src=\"" + data_dark[i].carousel_elements[j].src + "?raw=true\" alt=\"" + data_dark[i].carousel_elements[j].alt + "\"" + css_style + ">";
         }
 
         if(i < data_light.length - 1)
@@ -45,5 +47,23 @@ function populate_images()
             image_element = image_element +
                                 "</div>" +
                             "</div>";
+    }
+}
+
+function is_mobile_device()
+{
+    return viewport_height > viewport_width;
+}
+
+function set_css_style()
+{
+    if(is_mobile_device())
+    {
+        css_style = "style=\"min-width : 80%\"";
+    }
+
+    else
+    {
+        css_style = "style=\"max-width : 20%; margin : 5%\"";
     }
 }

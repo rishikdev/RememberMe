@@ -1,4 +1,7 @@
 import data_light from './Data/data_light.js';
+import difficulty_level_description from './Data/difficulty_level_description.js';
+import download_links from './Data/download_links.js';
+import application_description from './Data/application_description.js';
 
 $(document).ready(function() 
 {
@@ -10,45 +13,6 @@ $(document).ready(function()
 
 let carousel_element = "";
 let application_description_element = "";
-
-const difficulty_level_description = [
-    "Easy: In easy difficulty level, you are given a total of 10 emoticons to remember in a time duration of 30 seconds. Then, you have to select the 10 correct emoticons from a pool of 30 emoticons (10 correct + 20 wrong emoticons).",
-    "Medium: In medium difficulty level, you are given a total of 15 emoticons to remember in a time duration of 30 seconds. Then, you have to select the 15 correct emoticons from a pool of 40 emoticons (15 correct + 25 wrong emoticons).",
-    "Hard: In hard difficulty level, you are given a total of 20 emoticons to remember in a time duration of 30 seconds. Then, you have to select the 20 correct emoticons from a pool of 50 emoticons (20 correct + 30 wrong emoticons)."
-]
-
-const download_links = {
-    qr_code : "https://tools-qr-production.s3.amazonaws.com/output/apple-toolbox/5f1060cc7a4b6be87b8d8a39df95df5d/977123ba09557330172e02955e3aa1dc.png",
-    app_store_badge_link : "https://apps.apple.com/us/app/remember-me/id1627908191?itsct=apps_box_badge&amp;itscg=30200",
-    app_store_badge_image : "https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1654300800&h=d379166e3261cffc9318e42725545164"
-}
-
-const application_description = [
-    {
-        card_title : "Motivation",
-        card_text : "I wanted to develop an application which would help people in training their brains. Mind exercises are critical in keeping one's brain healthy and active. My thinking behind developing this application was that since almost every person carries at least one cell phone, then why not use them to do something good for their minds? One of the best exercises for our minds is remembering and recalling things we have seen. So, Remember Me? is an exercise for your brain."
-    },
-
-    {
-        card_title : "How it works",
-        card_text : "There are three difficulty levels to choose from: Easy, Medium, and Hard. In each difficulty level, you will be shown a series of distinct emoticons (varying number of emoticons for each difficulty level) during a time period of 30 seconds. Your task is to remember these emoticons. At the end of 30 seconds, you will be presented with a random mix of emoticons (the count of emoticons shown here will be higher than the count of emoticons you have to remember) from which you have to select the ones that were shown to you.",
-    },
-
-    {
-        card_title : "More on difficulty levels",
-        card_text : "list difficulties"
-    },
-
-    {
-        card_title : "How the point system works",
-        card_text : "You get one point for each correct emoticon you identify or recall. However, for each incorrect emoticon you select, you lose a point. The lowest possible score is 0, so you cannot score in the negatives. There are no penalties for failing to recall emoticons. This is designed in such a way to discourage the users from selecting all the emoticons and scoring 100% every-time."
-    },
-
-    {
-        card_title : "Where to find",
-        card_text : "list links"
-    }
-]
 
 function populate_carousel()
 {
